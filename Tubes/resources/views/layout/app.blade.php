@@ -35,46 +35,45 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto" >
+                    <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                        @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                         @endguest
                     </ul>
                 </div>
@@ -88,15 +87,21 @@
                 </a> --}}
             <ul class="navbar-nav d-flex flex-column">
                 <li class="nav-item">
-                    <a href="/pemesanan" class="nav-link text-dark pl-4 p-3">PEMESANAN</a>
+                    <a href="/pembelian" class="nav-link text-dark pl-4 p-3">PEMBELIAN</a>
                 </li>
                 <li class="nav-item">
                     <a href="/pengiriman" class="nav-link text-dark pl-4 p-3">PENGIRIMAN</a>
                 </li>
+                <li class="nav-item">
+                    <a href="/produk" class="nav-link text-dark pl-4 p-3">PRODUK</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/review" class="nav-link text-dark pl-4 p-3">REVIEW</a>
+                </li>
             </ul>
         </nav>
         <section class="p-4 my-container">
-            
+
             <section class="py-5 text-center container-fluid">
                 <div class="row py-5">
                     <div class="col-md-12">
@@ -117,13 +122,13 @@
 </body>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script>
-    var menu_btn = document.querySelector("#menu-btn")
-    var sidebar = document.querySelector("#sidebar")
-    var container = document.querySelector(".my-container")
-    menu_btn.addEventListener("click", () => {
-        sidebar.classList.toggle("active-nav")
-        container.classList.toggle("active-cont")
-    })
+var menu_btn = document.querySelector("#menu-btn")
+var sidebar = document.querySelector("#sidebar")
+var container = document.querySelector(".my-container")
+menu_btn.addEventListener("click", () => {
+    sidebar.classList.toggle("active-nav")
+    container.classList.toggle("active-cont")
+})
 </script>
 
 </html>
