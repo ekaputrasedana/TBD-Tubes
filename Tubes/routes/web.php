@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FlowController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Jenssegers\Mongodb\Auth\User;
@@ -16,8 +17,7 @@ use Psy\Readline\Userland;
 |
 */
 
-
-Route::get('/', [UserController::class,'index']);
+Route::get('/',[FlowController::class,'index']);
 Route::get('/add', [UserController::class,'add']);
 Route::post('processAdd', [UserController::class,'processAdd']) ->name('processAddUser');
 Route::get('/edit/{id}', [UserController::class,'edit']);
